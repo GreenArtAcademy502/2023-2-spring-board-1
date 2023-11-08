@@ -1,7 +1,10 @@
 package com.green.springfirst.board;
 
+import com.green.springfirst.board.model.BoardDetailVo;
 import com.green.springfirst.board.model.BoardVo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,5 +17,9 @@ public class BoardService {
 
     public List<BoardVo> getBoard() {
         return mapper.selBoardList();
+    }
+
+    public BoardDetailVo getBoardById(int iboard) {
+        return mapper.selBoardById(iboard);
     }
 }
