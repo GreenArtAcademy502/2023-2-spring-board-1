@@ -1,13 +1,11 @@
 package com.green.springfirst.board;
 
+import com.green.springfirst.ResVo;
 import com.green.springfirst.board.model.BoardDetailVo;
+import com.green.springfirst.board.model.BoardInsDto;
 import com.green.springfirst.board.model.BoardVo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,6 +14,14 @@ import java.util.List;
 public class BoardController {
 
     private final BoardService service;
+
+    @PostMapping("/board")
+    public ResVo postBoard(@RequestBody BoardInsDto dto) {
+        System.out.println(dto);
+        int result = service.postBoard(dto);
+        System.out.println("result : " + result);
+        return new ResVo(result);
+    }
 
     @GetMapping("/board")
     public List<BoardVo> getBoard() {
@@ -29,8 +35,12 @@ public class BoardController {
     }
 
 
-    @PostMapping("/board")
-    public int insBoard() {
-        return 1;
+    @DeleteMapping("/board/{iboard}")
+    public ResVo delBoard(@PathVariable int iboard) {
+        System.out.println(iboard);
+        int result = service.delBoard(iboard);
+        return new ResVo(result);
     }
+
+
 }
