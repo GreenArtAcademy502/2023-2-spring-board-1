@@ -2,6 +2,7 @@ package com.green.springfirst.board;
 
 import com.green.springfirst.board.model.BoardDetailVo;
 import com.green.springfirst.board.model.BoardInsDto;
+import com.green.springfirst.board.model.BoardUpdDto;
 import com.green.springfirst.board.model.BoardVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class BoardService {
 
     public BoardDetailVo getBoardById(int iboard) {
         return mapper.selBoardById(iboard);
+    }
+
+    public int putBoard(BoardUpdDto dto) {
+        return mapper.updBoard(dto);
     }
 
     public int delBoard(int iboard) {

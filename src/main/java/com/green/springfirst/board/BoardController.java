@@ -3,6 +3,7 @@ package com.green.springfirst.board;
 import com.green.springfirst.ResVo;
 import com.green.springfirst.board.model.BoardDetailVo;
 import com.green.springfirst.board.model.BoardInsDto;
+import com.green.springfirst.board.model.BoardUpdDto;
 import com.green.springfirst.board.model.BoardVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,13 @@ public class BoardController {
     public BoardDetailVo getBoardDetail(@PathVariable int iboard) {
         System.out.println(iboard);
         return service.getBoardById(iboard);
+    }
+
+    @PutMapping("/board")
+    public ResVo putBoard(@RequestBody BoardUpdDto dto) {
+        System.out.println(dto);
+        int result = service.putBoard(dto);
+        return new ResVo(result);
     }
 
 
