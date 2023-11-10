@@ -17,13 +17,9 @@ public class BoardService {
 
     private final BoardMapper mapper;
 
-    public int postBoard(BoardInsDto dto) {
-        return mapper.insBoard(dto);
-    }
+    public int postBoard(BoardInsDto dto) { return mapper.insBoard(dto); }
 
-    public List<BoardVo> getBoard() {
-        return mapper.selBoardList();
-    }
+    public List<BoardVo> getBoard() { return mapper.selBoardList(); }
 
     public BoardDetailVo getBoardById(int iboard) {
         return mapper.selBoardById(iboard);

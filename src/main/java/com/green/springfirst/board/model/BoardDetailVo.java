@@ -1,10 +1,11 @@
 package com.green.springfirst.board.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
+@AllArgsConstructor
 public class BoardDetailVo {
     private int iboard;
     private String title;
